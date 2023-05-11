@@ -1,0 +1,12 @@
+#home_commande:
+#    resource: "@homeBundle/Resources/config/routing/commande.yml"
+#    prefix:   /commande
+
+home_homepage:
+    path:     /
+    defaults: { _controller: homeBundle:Default:index }
+
+
+#home_livreur:
+#    path:     /livraison
+#    defaults: { _controller: homeBundle:Livreur:index }

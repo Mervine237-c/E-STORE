@@ -1,0 +1,51 @@
+{% extends 'corps.html.twig' %}
+
+{% block body %}
+
+    <center>
+    <h1> Création d'une Voiture</h1>
+<style>
+
+    .couleur{
+        color: black;
+    }
+
+    .couleur2{
+
+
+        color: red;
+    }
+</style>
+    <table border="1">
+        <tr>
+            <th>Nom</th><th>Matricule</th><th>Image</th>
+        </tr>
+        {{ form_start(mervine_form) }}
+        <tr>
+            <td>{{ form_widget(mervine_form.nom, {'attr': {'class': 'couleur'}}) }}</td>
+            <td>{{ form_widget(mervine_form.matricule, {'attr': {'class': 'couleur2'}}) }}</td>
+            <td>{{ form_widget(mervine_form.imageName) }}</td>
+        </tr>
+
+
+    </table>
+
+   {{ form_widget(mervine_form.nom) }}
+        {{ form_widget(mervine_form.imageFile) }}
+
+
+    {{ form_end(mervine_form) }}
+
+{#    {{ form_start(mervine_form) }}#}
+{#    {{ form_widget(mervine_form) }}#}
+{#    <input type="submit" value="Create" />#}
+{#    {{ form_end(mervine_form) }}#}
+
+    <ul>
+        <li>
+            <a href="{{ path('voiture_index') }}">Back to the list</a>
+        </li>
+    </ul>
+
+    </center>
+{% endblock %}

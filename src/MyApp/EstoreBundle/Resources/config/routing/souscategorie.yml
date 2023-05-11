@@ -1,0 +1,24 @@
+souscategorie_index:
+    path:     /
+    defaults: { _controller: "MyAppEstoreBundle:souscategorie:index" }
+    methods:  GET
+
+souscategorie_show:
+    path:     /{id}/show
+    defaults: { _controller: "MyAppEstoreBundle:souscategorie:show" }
+    methods:  GET
+
+souscategorie_new:
+    path:     /new
+    defaults: { _controller: "MyAppEstoreBundle:souscategorie:new" }
+    methods:  [GET, POST]
+
+souscategorie_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MyAppEstoreBundle:souscategorie:edit" }
+    methods:  [GET, POST]
+
+souscategorie_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MyAppEstoreBundle:souscategorie:delete" }
+    methods:  DELETE

@@ -1,0 +1,65 @@
+my_app_estore_voiture:
+    resource: "@MyAppEstoreBundle/Resources/config/routing/voiture.yml"
+    prefix:   /voiture
+
+my_app_estore_produit:
+    resource: "@MyAppEstoreBundle/Resources/config/routing/produit.yml"
+    prefix:   /produit
+
+my_app_estore_categorie:
+    resource: "@MyAppEstoreBundle/Resources/config/routing/categorie.yml"
+    prefix:   /categorie
+
+my_app_estore_souscategorie:
+    resource: "@MyAppEstoreBundle/Resources/config/routing/souscategorie.yml"
+    prefix:   /souscategorie
+
+#M
+
+my_app_estore_banque:
+    resource: "@MyAppEstoreBundle/Resources/config/routing/banque.yml"
+    prefix:   /banque
+
+my_app_estore_client:
+    resource: "@MyAppEstoreBundle/Resources/config/routing/client.yml"
+    prefix:   /client
+
+#my_app_estore_client2:
+#    resource: "@MyAppEstoreBundle/Resources/config/routing/client2.yml"
+#    prefix:   /client2
+
+my_app_estore_magasin:
+        resource: "@MyAppEstoreBundle/Resources/config/routing/magasin.yml"
+        prefix: /magasin
+
+my_app_estore_homepage:
+    path:     /
+    defaults: { _controller: MyAppEstoreBundle:Default:index }
+
+
+my_modele:
+    path:     /listM
+    defaults: { _controller: MyAppEstoreBundle:Modele:index }
+
+PageAcceuil_homepage:
+    path:     /PageAccueil
+    defaults: { _controller: MyAppEstoreBundle:Voiture2:PageAccueil}
+#    methods:  POST
+
+Afficher_homepage:
+    path:     /Afficher
+    defaults: { _controller: MyAppEstoreBundle:Voiture2:Affichage}
+
+mod_homepage:
+    path:     /{id}/mod
+    defaults: { _controller: MyAppEstoreBundle:Voiture2:Modification}
+
+sup_homepage:
+    path:     /{id}/sup
+    defaults: { _controller: MyAppEstoreBundle:Voiture2:Supprimer}
+
+
+voiture_new:
+    path:     /new_voiture
+    defaults: { _controller: "MyAppEstoreBundle:Voiture2:ajoutWithFormBuilder" }
+    methods:  [GET, POST]

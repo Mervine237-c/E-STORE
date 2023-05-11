@@ -1,0 +1,24 @@
+Produit_index:
+    path:     /
+    defaults: { _controller: "MyAppEstoreBundle:Produit:index" }
+    methods:  GET
+
+Produit_show:
+    path:     /{id}/show
+    defaults: { _controller: "MyAppEstoreBundle:Produit:show" }
+    methods:  GET
+
+Produit_new:
+    path:     /new
+    defaults: { _controller: "MyAppEstoreBundle:Produit:new" }
+    methods:  [GET, POST]
+
+Produit_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MyAppEstoreBundle:Produit:edit" }
+    methods:  [GET, POST]
+
+Produit_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MyAppEstoreBundle:Produit:delete" }
+    methods:  DELETE
