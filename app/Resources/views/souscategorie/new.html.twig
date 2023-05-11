@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Souscategorie creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Créer" />
+    {{ form_end(form) }}
+
+
+{#    {'attr': {'class': 'couleur'}}#}
+    <ul>
+        <li>
+            <a href="{{ path('souscategorie_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

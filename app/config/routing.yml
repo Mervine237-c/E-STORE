@@ -1,0 +1,19 @@
+esprituser:
+    resource: "@EsprituserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+home:
+    resource: "@homeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+my_app_estore:
+    resource: "@MyAppEstoreBundle/Resources/config/routing.yml"
+    prefix:   /estore
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

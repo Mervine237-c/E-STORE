@@ -1,0 +1,73 @@
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block body %}#}
+{#    <h1>Produit creation</h1>#}
+
+{#    {{ form_start(form) }}#}
+{#        {{ form_widget(form) }}#}
+{#        <input type="submit" value="Create" />#}
+{#    {{ form_end(form) }}#}
+
+{#    <ul>#}
+{#        <li>#}
+{#            <a href="{{ path('Produit_index') }}">Back to the list</a>#}
+{#        </li>#}
+{#    </ul>#}
+{#{% endblock %}#}
+
+
+
+{% extends 'corps2.html.twig' %}
+
+{% block body %}
+
+    <section id="dom">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    {{ form_start(form) }}
+
+
+
+                    <div class="card-header">
+                        <h4 class="card-title">  Nom :  {{ form_widget(form.nom) }} /   Sous-Catégorie :  {{ form_widget(form.souscategorie) }} / Qte : {{ form_widget(form.quantite) }} </h4><br>
+
+{#                        <p class="card-text">   {{ form_widget(form.escription) }}</p>#}
+                    </div>
+                    <div class="card-content ">
+                        <div class="card-body card-dashboard table-responsive">
+
+                            <table class="table table-striped table-bordered dom-jQuery-events">
+                                <tbody>
+                                <tr>
+                                    <td> Nome Image : {{ form_widget(form.escription) }}</td>
+                                </tr>
+                                <tr>
+                                    <td> Nome Image : {{ form_widget(form.imageName) }}</td>
+                                </tr>
+                                <tr>
+
+                                    <td> Client : {{ form_widget(form.client) }}</td>
+                                </tr>
+                                <tr>
+                                    <td> Photo : {{ form_widget(form.imageFile) }}</td>
+                                </tr>
+                                </tbody>
+
+
+                            </table>
+
+                            <input type="submit" value="Créer" />
+                        </div>
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}
+

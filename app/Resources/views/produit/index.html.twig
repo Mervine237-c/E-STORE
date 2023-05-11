@@ -1,0 +1,111 @@
+{% extends 'corps2.html.twig' %}
+
+{% block body %}
+
+
+
+    <section id="file-export">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">File export</h4>
+                        <p class="card-text">Exporting data from a table can often be a key part of a complex application. The
+                            Buttons extension for DataTables provides three plug-ins that provide overlapping functionality for data
+                            export.</p>
+                    </div>
+                    <div class="card-content ">
+                        <div class="card-body card-dashboard table-responsive">
+                            <table class="table table-striped table-bordered file-export">
+                                <thead>
+{#                                <tr>#}
+{#                                    <th>Name</th>#}
+{#                                    <th>Position</th>#}
+{#                                    <th>Office</th>#}
+{#                                    <th>Age</th>#}
+{#                                    <th>Start date</th>#}
+{#                                    <th>Salary</th>#}
+{#                                </tr>#}
+
+
+                                    <tr>
+                                        <th>Photo</th>
+                                        <th>Nom</th>
+                                        <th> Sous Catégorie</th>
+                                                        <th>Description</th>
+                                                        <th>Quantite</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+{#                                <tr>#}
+{#                                    <td>Donna Snider</td>#}
+{#                                    <td>Customer Support</td>#}
+{#                                    <td>New York</td>#}
+{#                                    <td>27</td>#}
+{#                                    <td>2011/01/25</td>#}
+{#                                    <td>$112,000</td>#}
+{#                                </tr>#}
+
+
+{% for produit in produits %}
+    <tr>
+        <td><a href="{{ path('Produit_show', { 'id': produit.id }) }}">
+                <img style="width: 80px;height: 75px;border-radius: 50%;" src="{{ asset('uploads/images/produit/') ~ produit.imageName}}" alt="{{ produit.nom }}" />
+
+            </a></td>
+        <td>{{ produit.nom }}</td>
+        <td>{{ produit.souscategorie }}</td>
+                        <td>{{ produit.escription }}</td>
+                        <td>{{ produit.quantite }}</td>
+        <td>
+            <ul>
+                <li>
+                    <a href="{{ path('Produit_show', { 'id': produit.id }) }}">show</a>
+                </li>
+                <li>
+                    <a href="{{ path('Produit_edit', { 'id': produit.id }) }}">edit</a>
+                </li>
+            </ul>
+        </td>
+    </tr>
+{% endfor %}
+                                </tbody>
+                                <tfoot>
+{#                                <tr>#}
+{#                                    <th>Name</th>#}
+{#                                    <th>Position</th>#}
+{#                                    <th>Office</th>#}
+{#                                    <th>Age</th>#}
+{#                                    <th>Start date</th>#}
+{#                                    <th>Salary</th>#}
+{#                                </tr>#}
+
+
+                                                        <tr>
+                                                            <th>Id</th>
+                                                            <th>Nom</th>
+                                                            <th>Sous Catégorie</th>
+                                                                            <th>Description</th>
+                                                                            <th>Quantite</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                </tfoot>
+                            </table>
+
+                            <ul>
+                                <li>
+                                    <a href="{{ path('Produit_new') }}">Créer un nouveau produit</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

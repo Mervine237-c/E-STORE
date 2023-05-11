@@ -1,0 +1,44 @@
+{% extends 'corps.html.twig' %}
+
+{% block body %}
+    <h1>Voitures list</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Matricule</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for voiture in voitures %}
+            <tr>
+                <td>   <img style="width: 200px;height: 175px;border-radius: 50%;" src="{{ asset('uploads/images/voiture/') ~ voiture.imageName}}" alt="{{ voiture.nom }}" />
+                </td>
+                <td><a href="{{ path('voiture_show', { 'id': voiture.id }) }}">{{ voiture.id }}</a></td>
+                <td>{{ voiture.Nom }}</td>
+                <td>{{ voiture.matricule }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('voiture_show', { 'id': voiture.id }) }}">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('voiture_edit', { 'id': voiture.id }) }}">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('voiture_new') }}">Create a new voiture</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'corps.html.twig' %}
+
+{% block body %}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <center>
+    <h1>Voiture</h1>
+
+    <table border="1">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ voiture.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ voiture.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ voiture.matricule }}</td>
+            </tr>
+        <tr>
+            <th>Photo</th>
+            <td> <img style="width: 200px;height: 175px;border-radius: 50%;" src="{{ asset('uploads/images/voiture/') ~ voiture.imageName}}" alt="{{ voiture.nom }}" />
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('voiture_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('voiture_edit', { 'id': voiture.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+
+    </center>
+
+    <div class="w3-container"  style="">
+        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Panier</button>
+
+        <div id="id01" class="w3-modal" style="">
+            <div class="w3-modal-content">
+                <header class="w3-container w3-teal">
+        <span onclick="document.getElementById('id01').style.display='none'"
+              class="w3-button w3-display-topright">&times;</span>
+                    <h2>Ajout Panier</h2>
+                </header>
+                <div class="w3-container">
+
+
+                    <div class="card-content">
+                        <table class="table table-responsive-sm text-center">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nom</th>
+                                <th>Matricule</th>
+                                <th>Photo</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>{{ voiture.id }}
+                                    </td>
+                                    <td>{{ voiture.nom }}</td>
+
+                                    <td>
+                                        <img style="width: 200px;height: 175px;border-radius: 50%;" src="{{ asset('uploads/images/voiture/') ~ voiture.imageName}}" alt="{{ voiture.nom }}" />
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+                <footer class="w3-container w3-teal">
+{#                    <p>Modal Footer</p>#}
+                    <form method="post">
+                    <input type="submit" name="panier_ajout" value="Ajouter">
+                    </form>
+                </footer>
+            </div>
+        </div>
+    </div>
+{% endblock %}

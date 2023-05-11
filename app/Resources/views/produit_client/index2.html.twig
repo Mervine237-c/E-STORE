@@ -1,0 +1,196 @@
+{% extends 'client.html.twig' %}
+
+
+{% block content %}
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+            from {top:-300px; opacity:0}
+            to {top:0; opacity:1}
+        }
+
+        @keyframes animatetop {
+            from {top:-300px; opacity:0}
+            to {top:0; opacity:1}
+        }
+
+        /* The Close Button */
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        .modal-body {padding: 2px 16px;}
+
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+    </style>
+    <section id="overlap-image-examples">
+        <div class="row">
+            <div class="col-12 mt-3 mb-3">
+                <div class="content-header">Produits</div>
+                <p class="content-sub-header">Mutiples</p>
+            </div>
+        </div>
+
+        <div class="row match-height">
+
+            {% for produit in produits %}
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card card-inverse bg-primary text-center">
+                    <div class="card-content">
+                        <div class="card-img overlap">
+{#                            <img src="client/img/elements/11.png" alt="element 06" width="190" class="mb-1">#}
+
+                            <img src="{{ asset('uploads/images/produit/') ~ produit.imageName}}" alt="element 06" width="190" class="mb-1">
+
+                        </div>
+                        <div class="card-body">
+{#                            <h4 class="card-title">New Arrival</h4>#}
+                            <button class="btn btn-raised btn-primary btn-darken-3 white" id="myBtn{{ produit.id }}">Buy Now</button>
+                            <p class="card-text">  {{ produit.escription }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+                            <center><h2> {{ produit.souscategorie }}</h2></center>
+                            <span class="close">&times;</span>
+                        </div>
+                        <div class="modal-body">
+                            <center>
+
+                                {{ form_start(form) }}
+                                {{ form_widget(form) }}
+                                {{ form_widget(form.produit, { 'attr': {'value': '{{ produit.souscategorie }}'}}) }}
+
+                                <input type="submit" value="Create" />
+                                {{ form_end(form) }}
+                            </center>
+                        </div>
+                        <div class="modal-footer">
+                            <center><h3> Qte : <b  style="color:red;">{{ produit.quantite }}</b></h3></center>
+                        </div>
+                    </div></div>
+
+
+                <script>
+                    // Get the modal
+                    var modal = document.getElementById("myModal");
+
+                    // Get the button that opens the modal
+                    var btn = document.getElementById("myBtn{{ produit.id }}");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks the button, open the modal
+                    btn.onclick = function() {
+                        modal.style.display = "block";
+                    }
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                </script>
+            {% endfor %}
+{#            <div class="col-lg-4 col-md-4 col-sm-12">#}
+{#                <div class="card card-inverse bg-danger text-center">#}
+{#                    <div class="card-content">#}
+{#                        <div class="card-img overlap">#}
+{#                            <img src="client/img/elements/14.png" alt="element 03" width="170">#}
+{#                        </div>#}
+{#                        <div class="card-body">#}
+{#                            <h4 class="card-title">Brand Minute</h4>#}
+{#                            <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="col-lg-4 col-md-4 col-sm-12">#}
+{#                <div class="card card-inverse bg-warning text-center">#}
+{#                    <div class="card-content">#}
+{#                        <div class="card-img overlap">#}
+{#                            <img src="client/img/elements/07.png" alt="element 07" width="225">#}
+{#                        </div>#}
+{#                        <div class="card-body">#}
+{#                            <h4 class="card-title">Brand Minute</h4>#}
+{#                            <p class="card-text">Donut toffee candy brownie soufflé macaroon.</p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+        </div>
+    </section>
+
+
+
+
+
+
+
+{% endblock %}
